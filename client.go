@@ -76,14 +76,10 @@ func (c *Client) GenerateImages(prompt string) (*Response, error) {
 		return nil, err
 	}
 
-	if err != nil {
-		return nil, fmt.Errorf("error sending HTTP request: %v", err)
-	}
-
 	httpClient := http.Client{Transport: CustomRoundTripper{}}
 	resp, err := httpClient.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error sending HTTP request: %v", err)
 	}
 
 	if resp.StatusCode != http.StatusOK {
