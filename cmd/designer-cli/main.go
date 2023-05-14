@@ -11,7 +11,6 @@ import (
 var args struct {
 	Prompt    string `arg:"positional,required"`
 	Token     string `arg:"-t,--token,env:DESIGNER_TOKEN,required"`
-	SessionId string `arg:"-s,--sessiVdon-id,env:DESIGNER_SESSION_ID,required"`
 }
 
 var logger = logrus.New()
